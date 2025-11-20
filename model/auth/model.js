@@ -7,6 +7,7 @@ const model = {
   requestCode: async function (account) {
     const res = await fetch(`${api}/request/code/`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -17,6 +18,7 @@ const model = {
   verifyCode: async function (account, code) {
     const res = await fetch(`${api}/verify/code/`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -28,6 +30,7 @@ const model = {
   requestRefreshTokenCode: async function (account, pwd) {
     const res = await fetch(`${api}/request/refreshToken/code/`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -38,6 +41,7 @@ const model = {
   requestRefreshToken: async function (code) {
     const res = await fetch(`${api}/request/refreshToken/`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -46,12 +50,15 @@ const model = {
     return res.json()
   },
   requestAccessToken: async function () {
-    const res = await fetch(`${api}/request/accessToken/`)
+    const res = await fetch(`${api}/request/accessToken/`, {
+      credentials: 'include'
+    })
     return res.json()
   },
   accountRequestCode: async function (newAccount) {
     const res = await fetch(`${api}/account/request/code/`, {
       method: 'PATCH',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -62,6 +69,7 @@ const model = {
   accountVerifyCode: async function (codeCurrentAccount, codeNewAccount) {
     const res = await fetch(`${api}/account/verify/code/`, {
       method: 'PATCH',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -72,6 +80,7 @@ const model = {
   passwordRequestCode: async function (account) {
     const res = await fetch(`${api}/password/request/code/`, {
       method: 'PATCH',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -82,6 +91,7 @@ const model = {
   passwordVerifyCode: async function (account, code, newPwd) {
     const res = await fetch(`${api}/password/verify/code/`, {
       method: 'PATCH',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -91,7 +101,8 @@ const model = {
   },
   logOut: async function () {
     const res = await fetch(`${api}/request/logout/`, {
-      method: 'POST'
+      method: 'POST',
+      credentials: 'include'
     })
     return res.json()
   }
